@@ -1,0 +1,290 @@
+This file contains details for all of your submissions.
+
+Your best runs were:
+	* Sub-task A, JU_ETCE_17_21 CodaLab #528075
+	* Sub-task B, JU_ETCE_17_21 CodaLab #533108
+	* Sub-task C, JU_ETCE_17_21 CodaLab #536886
+
+You will find detailed results for all your submissions below.
+
+====
+
+Sub-task A, JU_ETCE_17_21 CodaLab #528051
+
+# SUBMITTED FILE: output_ml_LogisticRegression.csv
+
+# DESCRIPTION:
+We have used various Machine Learning techniques to classify the tweets.
+We have validated our models using 15 percent of the training data.
+We have conducted several experiments and have found the best validation accuracy for :
+    1> Countvectorizer
+    2> Tri-gram
+    3> 90,000 features
+Now among the various classifiers, we have built an ensemble (voting) classifier with top 5 models and found the best accuracy result for :
+    Logistic Regression
+
+So, Key-points of our Model is :
+    1> Countvectorizer
+    2> Tri-gram
+    3> 90,000 features
+    4> Logistic Regression
+
+# RESULTS:
+
+Macro-F1: 0.72313459514
+Overall Accuracy: 0.810465116279
+
+Per-class performance:
+             precision    recall  f1-score   samples
+
+        NOT     0.8160    0.9516    0.8786       620
+        OFF     0.7810    0.4458    0.5676       240
+
+avg / total     0.8063    0.8105    0.7918       860
+
+
+====
+
+Sub-task A, JU_ETCE_17_21 CodaLab #528075
+
+# SUBMITTED FILE: output_cnn_glove_300.csv
+
+# DESCRIPTION:
+In this submission we have used Convolutional Neural Network to classify the tweets.
+We have used Glove(300 dimension) for pre-trained embedding.
+We have parsed the cleaned tweets to generate vector sequence for traing through embedding layer.
+
+Here is the model summery :
+
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_1 (InputLayer)            (None, 65)           0                                            
+__________________________________________________________________________________________________
+embedding_1 (Embedding)         (None, 65, 300)      120000000   input_1[0][0]                    
+__________________________________________________________________________________________________
+conv1d_1 (Conv1D)               (None, 64, 100)      60100       embedding_1[0][0]                
+__________________________________________________________________________________________________
+conv1d_2 (Conv1D)               (None, 63, 100)      90100       embedding_1[0][0]                
+__________________________________________________________________________________________________
+conv1d_3 (Conv1D)               (None, 62, 100)      120100      embedding_1[0][0]                
+__________________________________________________________________________________________________
+global_max_pooling1d_1 (GlobalM (None, 100)          0           conv1d_1[0][0]                   
+__________________________________________________________________________________________________
+global_max_pooling1d_2 (GlobalM (None, 100)          0           conv1d_2[0][0]                   
+__________________________________________________________________________________________________
+global_max_pooling1d_3 (GlobalM (None, 100)          0           conv1d_3[0][0]                   
+__________________________________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 300)          0           global_max_pooling1d_1[0][0]     
+                                                                 global_max_pooling1d_2[0][0]     
+                                                                 global_max_pooling1d_3[0][0]     
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 256)          77056       concatenate_1[0][0]              
+__________________________________________________________________________________________________
+dropout_1 (Dropout)             (None, 256)          0           dense_1[0][0]                    
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 1)            257         dropout_1[0][0]                  
+__________________________________________________________________________________________________
+activation_1 (Activation)       (None, 1)            0           dense_2[0][0]                    
+==================================================================================================
+Total params: 120,347,613
+Trainable params: 120,347,613
+Non-trainable params: 0
+
+# RESULTS:
+
+Macro-F1: 0.784391222275
+Overall Accuracy: 0.841860465116
+
+Per-class performance:
+             precision    recall  f1-score   samples
+
+        NOT     0.8538    0.9419    0.8957       620
+        OFF     0.7955    0.5833    0.6731       240
+
+avg / total     0.8375    0.8419    0.8336       860
+
+
+====
+
+Sub-task B, JU_ETCE_17_21 CodaLab #533078
+
+# SUBMITTED FILE: output_ml_lr_cvec_50k_trig.csv
+
+# DESCRIPTION:
+We have used various Machine Learning techniques to classify the tweets.
+We have validated our models using 15 percent of the training data.
+We have conducted several experiments and have found the best validation accuracy for :
+    1> Countvectorizer
+    2> Tri-gram
+    3> 50,000 features
+Now among the various classifiers, we have built an ensemble (voting) classifier with top 5 models and found the best accuracy result for :
+    Logistic Regression
+
+So, Key-points of our Model is :
+    1> Countvectorizer
+    2> Tri-gram
+    3> 90,000 features
+    4> Logistic Regression
+
+# RESULTS:
+
+Macro-F1: 0.537777777778
+Overall Accuracy: 0.891666666667
+
+Per-class performance:
+             precision    recall  f1-score   samples
+
+        TIN     0.8945    0.9953    0.9422       213
+        UNT     0.6667    0.0741    0.1333        27
+
+avg / total     0.8689    0.8917    0.8512       240
+
+
+====
+
+Sub-task B, JU_ETCE_17_21 CodaLab #533108
+
+# SUBMITTED FILE: output_rnn_subb_final.csv
+
+# DESCRIPTION:
+We have used LSTM - RNN network for tweet classification.
+Hyperparameters :
+    1> batchsize = 24
+    2> lstm units = 64
+    3> epochs number = 1,00,000
+We have used Glove embeddings of 200D vectors.
+We have used 2 class layer for training.
+We have found that model gives better validation accuracy while fitted with cleaned data parsing with @user.
+While training the RNN- Lstm network we have used alternative Targeted and Non -targeted tweets from annotated data.
+We have used : 
+    1>ADAM optimizer.
+    2>Accuracy as Metric.
+    3>Cross entropy.
+
+# RESULTS:
+
+Macro-F1: 0.54587543782
+Overall Accuracy: 0.804166666667
+
+Per-class performance:
+             precision    recall  f1-score   samples
+
+        TIN     0.8990    0.8779    0.8884       213
+        UNT     0.1875    0.2222    0.2034        27
+
+avg / total     0.8190    0.8042    0.8113       240
+
+
+====
+
+Sub-task C, JU_ETCE_17_21 CodaLab #536880
+
+# SUBMITTED FILE: output_rnn_subc.csv
+
+# DESCRIPTION:
+We have used LSTM - RNN network for tweet classification.
+Hyperparameters :
+    1> batchsize = 24
+    2> lstm units = 64
+    3> epochs number = 40,000
+We have used Glove embeddings of 200D vectors.
+We have used 2 class layer for training.
+We have found that model gives better validation accuracy while fitted with cleaned data parsing with @user.
+While training the RNN- Lstm network we have used alternative Targeted and Non -targeted tweets from annotated data.
+We have used : 
+    1>ADAM optimizer.
+    2>Accuracy as Metric.
+    3>Cross entropy.
+
+# RESULTS:
+
+Macro-F1: 0.458016323534
+Overall Accuracy: 0.568075117371
+
+Per-class performance:
+             precision    recall  f1-score   samples
+
+        GRP     0.5571    0.5000    0.5270        78
+        IND     0.6500    0.7800    0.7091       100
+        OTH     0.1739    0.1143    0.1379        35
+
+avg / total     0.5378    0.5681    0.5486       213
+
+
+====
+
+Sub-task C, JU_ETCE_17_21 CodaLab #536884
+
+# SUBMITTED FILE: output_CNN.csv
+
+# DESCRIPTION:
+In this submission we have used Convolutional Neural Network to classify the tweets.
+
+We have parsed the cleaned tweets to generate vector sequence for traing through embedding layer.
+
+Here is the model summery :
+
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_5 (Dense)              (None, 512)               51712     
+_________________________________________________________________
+activation_5 (Activation)    (None, 512)               0         
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_6 (Dense)              (None, 3)                 1539      
+_________________________________________________________________
+activation_6 (Activation)    (None, 3)                 0         
+=================================================================
+Total params: 53,251
+Trainable params: 53,251
+Non-trainable params: 0
+
+# RESULTS:
+
+Macro-F1: 0.435202251197
+Overall Accuracy: 0.605633802817
+
+Per-class performance:
+             precision    recall  f1-score   samples
+
+        GRP     0.6364    0.4487    0.5263        78
+        IND     0.5924    0.9300    0.7237       100
+        OTH     1.0000    0.0286    0.0556        35
+
+avg / total     0.6755    0.6056    0.5416       213
+
+
+====
+
+Sub-task C, JU_ETCE_17_21 CodaLab #536886
+
+# SUBMITTED FILE: output_ml_lr.csv
+
+# DESCRIPTION:
+We have used various Machine Learning techniques to classify the tweets.
+
+We have validated our models using 10 percent of the training data.
+
+We have converted our text documents to a matrix of token counts (CountVectorizer), then transformed a count matrix to a normalized tf-idf representation (tf-idf transformer). After that, we train several classifiers from Scikit-Learn library.
+
+Now among the various classifiers, we have built an ensemble (voting) classifier with top 5 models and found the best accuracy result for :
+    Logistic Regression
+
+To make the vectorizer => transformer => classifier easier to work with, we will use Pipeline class in Scilkit-Learn that behaves like a compound classifier.
+
+# RESULTS:
+
+Macro-F1: 0.480057590252
+Overall Accuracy: 0.577464788732
+
+Per-class performance:
+             precision    recall  f1-score   samples
+
+        GRP     0.6167    0.4744    0.5362        78
+        IND     0.6061    0.8000    0.6897       100
+        OTH     0.2857    0.1714    0.2143        35
+
+avg / total     0.5573    0.5775    0.5554       213
+
+
