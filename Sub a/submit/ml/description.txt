@@ -1,0 +1,14 @@
+We have used various Machine Learning techniques to classify the tweets.
+We have validated our models using 15 percent of the training data.
+We have conducted several experiments and have found the best validation accuracy for :
+    1> Countvectorizer
+    2> Tri-gram
+    3> 90,000 features
+Now among the various classifiers, we have built an ensemble (voting) classifier with top 5 models and found the best accuracy result for :
+    Logistic Regression
+
+So, Key-points of our Model is :
+    1> Countvectorizer
+    2> Tri-gram
+    3> 90,000 features
+    4> Logistic Regression
